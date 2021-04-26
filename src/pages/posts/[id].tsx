@@ -12,7 +12,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = posts.contents!.map(post => `/posts/${post.id}`)
   return {
     paths,
-    fallback: true
+    fallback: false
   }
 }
 
