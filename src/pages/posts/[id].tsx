@@ -12,14 +12,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = posts.contents!.map(post => `/posts/${post.id}`)
   return {
     paths,
-    fallback: true
+    fallback: false
   }
 }
 
 export const getStaticProps: GetStaticProps = async context => {
   const id = context.params!.id;
   const post = await fetchApi<Post>(`/posts/${id}`)
-  console.log(post)
 
   return {
     props : {
